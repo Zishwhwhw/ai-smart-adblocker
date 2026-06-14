@@ -1,13 +1,28 @@
 {
   "manifest_version": 3,
-  "name": "AI Smart Blocker",
+  "name": "Smart Blocker",
   "version": "1.0",
-  "description": "AI Smart Blocker powered by AI.",
+  "description": "Smart Blocker powered by Gemini.",
   "action": {
     "default_popup": "popup.html"
   },
   "permissions": [
     "activeTab",
-    "storage"
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>",
+    "https://generativelanguage.googleapis.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
   ]
 }
